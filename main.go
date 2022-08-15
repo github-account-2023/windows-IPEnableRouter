@@ -6,7 +6,8 @@ import (
 )
 
 func main() {
-	k, err := registry.OpenKey(registry.LOCAL_MACHINE, `SYSTEM\CurrentControlSet\Services\Tcpip\Parameters`, registry.QUERY_VALUE)
+	log.SetFlags(log.Lshortfile | log.LstdFlags)
+	k, err := registry.OpenKey(registry.LOCAL_MACHINE, `SYSTEM\CurrentControlSet\Services\Tcpip\Parameters`, registry.ALL_ACCESS)
 	if err != nil {
 		log.Fatal(err)
 	}
